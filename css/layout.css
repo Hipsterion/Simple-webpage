@@ -57,10 +57,8 @@ html, body {
 #content {
   background-color: rgb(224, 240, 241);
   width: 90%;
-  height: 1080px;
-  display: block;
   margin: auto;
-  overflow-y: scroll;
+  overflow-y: a;
 
 }
   #content img.leftContentImage{
@@ -78,9 +76,8 @@ html, body {
 
 #footer {
   background-color: rgb(0, 0, 0);
-  position : static;
+  position : relative;
   text-align: left;
-  display: block;
   height: 4%;
   bottom: 0;
   display: inline-flex;
@@ -126,5 +123,4 @@ h1.contentTitle {
   margin-bottom: 40px;
   font-family: monospace;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  
 }

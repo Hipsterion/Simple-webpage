@@ -1,0 +1,59 @@
+@import "./layout.css";
+
+#header {
+    margin-bottom: 50px;
+}
+#content {
+    height: 50%;
+    background-color: white;
+    
+}
+
+#footer {
+    position: absolute;
+}
+
+table {
+    width: 100%;
+  }
+  
+  th {
+    height: 50px;
+    text-align: left;
+    
+  }
+  td {
+    height: 50px;
+    vertical-align: bottom;
+  }
+  
+  th, td {
+    padding: 15px;
+    text-align: left;
+  }
+
+  th, td {
+    border-bottom: 1px solid #ddd;
+  }
+
+div.clearButton {
+    display:inline-block;
+    color:#444;
+    border:1px solid #CCC;
+    background:#DDD;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+    cursor:pointer;
+    vertical-align:middle;
+    max-width: 100px;
+    padding: 5px;
+    text-align: center;
+}
+
+div.clearButton:active {
+    color:red;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+}
+
+div.clearButton:hover {
+  background-color: darkcyan;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Title wannabe</title>
+        <link rel="stylesheet" type="text/css" href="css\newsFormStyles.css">
+        <script src="./scripts/submitForm.js"></script>
+    </head>
+<body>
+    <div id="header">
+        <div id="topNavigationBar">
+            <a class="active" class="navItem" href="index.html">Home</a>
+            <a href="bmws.html" class="navItem">About us</a>
+            <a href="audis.html" class="navItem">Staff</a>
+            <a href="mercedes.html" class="navItem">Statistics</a>
+            <a href="news.html" class="navItem">Share the news</a>
+        </div>
+    </div>
+
+    <div id="content">
+        <h3>Complete this form first</h3>    
+        <div>
+            <form id="personForm" onsubmit="AddData()" target="_self" >
+                First name:
+                <div> 
+                    <input type="text" name="firstName">
+                    <div class="clearButton" onclick="clearInputFields('firstName')">Clear</div><br>
+                </div>
+                Last name:
+                <div>
+                    <input type="text" name="lastName">
+                    <div class="clearButton" onclick="clearInputFields('lastName')">Clear</div><br>
+                </div>
+                Age:
+                <div>
+                    <input type="number" name="age">
+                    <div class="clearButton" onclick="clearInputFields('age')">Clear</div><br>
+                </div>
+                Gender:
+                <div>
+                    <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                    <input type="radio" name="gender" value="other"> Other
+                    <div class="clearButton" onclick="clearRadioButtons('gender')">Clear</div><br>
+                </div>
+                Employed:
+                <div>
+                    <input type="checkbox" name="employment">
+                    <div class="clearButton" onclick="clearCheckboxes('employment')">Clear</div><br>
+                </div>
+                Studies in:
+                <div>
+                    <select name="study">
+                        <option value="None">None</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Biology">Biology</option>
+                        <option value="Informatics">Informatics</option>
+                        <option value="journalism">journalism</option>
+                    </select>
+                    <div class="clearButton" onclick="clearSelectors('study')">Clear</div><br>
+                </div>
+                <button type="button" onclick="AddData()">Submit</button>
+            </form>
+        </div>
+        <div>
+            <table id="personsTable">
+                <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Employed</th>
+                <th>Studies in</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="footer">
+        <p>Posted by: Bogdan Dascal</p>
+        <p>Contact information: <a href="mailto:someone@example.com">
+        someone@example.com</a></p>
+    </div>
+</body>
+</html>
