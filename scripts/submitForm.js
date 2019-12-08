@@ -30,27 +30,32 @@ function AddData(){
         for(i = 0; i < table.rows[0].cells.length; i++)
             cells[i] = newRow.insertCell(i);
         let values = [firstName, lastName, age, gender_value, employed, study];
-        cells.forEach((cell, index) => cell.innerHTML = values[index]);
+        values.forEach((value, index) => cells[index].innerHTML = value);
+        var rowIndex = table.rows.length-1;
+        newRow.setAttribute("id", `row${rowIndex}`);
+        cells[cells.length-1].innerHTML = `<div class="clearButton" onclick="clearRow('row${rowIndex}')">Delete</div>`;
         clearForm(firstName, lastName, age, genders);
     }
+}
+
+function clearRow(id){
+    var row = document.getElementById(id);
+    row.parentNode.removeChild(row);
+    
 }
 
 function clearForm() {
     document.getElementById('personForm').reset();
 }
 
-function clearInputFields(name) {
-    document.getElementsByName(name).forEach(field => field.value = '')
-}
+// function clearInputFields(name) {
+//     document.getElementsByName(name).forEach(field => field.value = '')
+// }
 
-function clearRadioButtons(name){
-    document.getElementsByName(name).forEach(radioButton => radioButton.checked = false);
-}
+// function clearRadioButtons(name){
+//     document.getElementsByName(name).forEach(radioButton => radioButton.checked = false);
+// }
 
-function clearCheckboxes(name) {
-    document.getElementsByName(name).forEach(checkbox => checkbox.checked = false);
-}
-
-function clearSelectors(name) {
-    document.getElementsByName(name).forEach(selector => selector.remove(selector.selectedIndex));
-}
+// function clearCheckboxes(name) {
+//     document.getElementsByName(name).forEach(checkbox => checkbox.checked = false);
+// }

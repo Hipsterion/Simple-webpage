@@ -7,46 +7,40 @@
         <script src="./scripts/submitForm.js"></script>
     </head>
 <body>
-    <div id="header">
-        <div id="topNavigationBar">
-            <a class="active" class="navItem" href="index.html">Home</a>
-            <a href="bmws.html" class="navItem">About us</a>
-            <a href="audis.html" class="navItem">Staff</a>
-            <a href="mercedes.html" class="navItem">Statistics</a>
-            <a href="news.html" class="navItem">Share the news</a>
+    <div class="grid-container">
+        <div id="header" class="grid-item">
+            <div id="topNavigationBar">
+                <a class="navItem" href="index.html">Home</a>
+                <a href="bmws.html" class="navItem">About us</a>
+                <a href="audis.html" class="navItem">Staff</a>
+                <a href="mercedes.html" class="navItem">Statistics</a>
+                <a href="news.html" class="navItem active">Share the news</a>
+            </div>
         </div>
-    </div>
-
-    <div id="content">
-        <h3>Complete this form first</h3>    
-        <div>
-            <form id="personForm" onsubmit="AddData()" target="_self" >
+        <div id="content" class="grid-item">
+            <form id="personForm" onsubmit="AddData()" target="_self" class="grid-item">
+                <h3 id="headTitle">Complete this form first</h3>    
                 First name:
                 <div> 
                     <input type="text" name="firstName">
-                    <div class="clearButton" onclick="clearInputFields('firstName')">Clear</div><br>
                 </div>
                 Last name:
                 <div>
                     <input type="text" name="lastName">
-                    <div class="clearButton" onclick="clearInputFields('lastName')">Clear</div><br>
                 </div>
                 Age:
                 <div>
                     <input type="number" name="age">
-                    <div class="clearButton" onclick="clearInputFields('age')">Clear</div><br>
                 </div>
                 Gender:
                 <div>
                     <input type="radio" name="gender" value="male"> Male
                     <input type="radio" name="gender" value="female"> Female
                     <input type="radio" name="gender" value="other"> Other
-                    <div class="clearButton" onclick="clearRadioButtons('gender')">Clear</div><br>
                 </div>
                 Employed:
                 <div>
                     <input type="checkbox" name="employment">
-                    <div class="clearButton" onclick="clearCheckboxes('employment')">Clear</div><br>
                 </div>
                 Studies in:
                 <div>
@@ -55,30 +49,73 @@
                         <option value="Mathematics">Mathematics</option>
                         <option value="Biology">Biology</option>
                         <option value="Informatics">Informatics</option>
-                        <option value="journalism">journalism</option>
+                        <option value="journalism">Journalism</option>
                     </select>
-                    <div class="clearButton" onclick="clearSelectors('study')">Clear</div><br>
                 </div>
                 <button type="button" onclick="AddData()">Submit</button>
             </form>
-        </div>
-        <div>
-            <table id="personsTable">
+            <table id="personsTable" class="grid-item">
                 <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Age</th>
-                <th>Gender</th>
-                <th>Employed</th>
-                <th>Studies in</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Employed</th>
+                    <th>Studies</th>
+                    <th></th>
+                </tr>
+                <tr id="row1">
+                    <td>Andrei</td>
+                    <td>Macovei</td>
+                    <td>23</td>
+                    <td>Other</td>
+                    <td>no</td>
+                    <td>Mathematics</td>
+                    <td><div class="clearButton" onclick="clearRow('row1')">Delete</div></td>
+                </tr>
+                <tr id="row2">
+                        <td>Vasile</td>
+                        <td>Ionescu</td>
+                        <td>25</td>
+                        <td>Male</td>
+                        <td>yes</td>
+                        <td>Biology</td>
+                        <td><div class="clearButton" onclick="clearRow('row2')">Delete</div></td>
+                </tr>
+                <tr id="row3">
+                        <td>Alexandra</td>
+                        <td>Abraham</td>
+                        <td>44</td>
+                        <td>Female</td>
+                        <td>yes</td>
+                        <td>None</td>
+                        <td><div class="clearButton" onclick="clearRow('row3')">Delete</div></td>
+                </tr>
+                <tr id="row4">
+                        <td>Costica</td>
+                        <td>Costan</td>
+                        <td>25</td>
+                        <td>Male</td>
+                        <td>yes</td>
+                        <td>Journalism</td>
+                        <td><div class="clearButton" onclick="clearRow('row4')">Delete</div></td>
+                </tr>
+                <tr id="row5">
+                        <td>Ioana</td>
+                        <td>Rotar</td>
+                        <td>28</td>
+                        <td>Female</td>
+                        <td>yes</td>
+                        <td>Journalism</td>
+                        <td><div class="clearButton" onclick="clearRow('row5')">Delete</div></td>
                 </tr>
             </table>
         </div>
-    </div>
-    <div id="footer">
-        <p>Posted by: Bogdan Dascal</p>
-        <p>Contact information: <a href="mailto:someone@example.com">
-        someone@example.com</a></p>
+        <div id="footer" class="grid-item">
+            <p>Posted by: Bogdan Dascal</p>
+            <p>Contact information: <a href="mailto:someone@example.com">
+            someone@example.com</a></p>
+        </div>
     </div>
 </body>
 </html>

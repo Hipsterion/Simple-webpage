@@ -26,6 +26,7 @@ p {
   align-items: center;
   width: 50%;
   margin: auto;
+  height: 60%;
   padding: 10px;
 }
 
@@ -52,13 +53,14 @@ html, body {
   margin: 0;
   width: 100%;
   height: 100%;
+  padding: 0;
 }
 
 #content {
   background-color: rgb(224, 240, 241);
   width: 90%;
   margin: auto;
-  overflow-y: a;
+  overflow-y: auto;
 
 }
   #content img.leftContentImage{
