@@ -4,7 +4,6 @@ html, body{
   width: 100%;
 }
 
-
 h1 {
   background-color: transparent;
   text-align: center;
@@ -16,7 +15,6 @@ p {
   text-align: center;
   
 }
-
 
 #topNavigationBar {
   display: inline-flex;
@@ -80,8 +78,6 @@ p {
 #topNavigationBar a.active {
   color: #555;
 }
-
-
 
  #footer {
 display: flex;
@@ -192,9 +188,6 @@ input:focus {
   grid-row-start: 2;
   grid-row-end: 3;
   margin-top: 7%;
-  /* display: inline-flex;
-  justify-content: center;
-  align-items: center; */
 }
 
 #footer {
@@ -215,4 +208,26 @@ input:focus {
 #submitButton {
   color: white;
   background-color: rgb(69, 168, 168);
+}
+
+input:valid {
+  color: green;
+  border-color: green;
+}
+
+input:invalid {
+  color: red;
+  border-color: red;
+}
+
+.errorField { 
+  color: red;
+}
+
+input:required {
+  border-color: rgb(69, 168, 168);
+}
+
+input[required=false] {
+  border-color: yellow;
 }

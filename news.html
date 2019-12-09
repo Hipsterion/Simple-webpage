@@ -22,22 +22,27 @@
                 <form id="personForm" onsubmit="AddData()" target="_self" class="flex-column-item">
                     <h4 id="headTitle">Complete this form first</h4>    
                     First name:
-                    <div> 
-                        <input type="text" name="firstName">
+                    <div id="firstNameSection"> 
+                        <input type="text" class='inputField' pattern="^[a-zA-Z]+$" required>
+                        <p class="errorField"></p>
                     </div>
                     Last name:
-                    <div>
-                        <input type="text" name="lastName">
+                    <div id="lastNameSection">
+                        <input type="text" class="inputField" pattern="^[a-zA-Z]+$" required>
+                        <p class="errorField"></p>
+
                     </div>
                     Age:
-                    <div>
-                        <input type="number" name="age">
+                    <div id="ageSection">
+                        <input type="number" class="inputField" min="1" required>
+                        <p class="errorField"></p>
                     </div>
                     Gender:
-                    <div>
-                        <input type="radio" name="gender" value="male"> Male
-                        <input type="radio" name="gender" value="female"> Female
-                        <input type="radio" name="gender" value="other"> Other
+                    <div id="genderSection">
+                        <input type="radio" name="gender" class="inputField" value="male" required> Male
+                        <input type="radio" name="gender" class="inputField" value="female"> Female
+                        <input type="radio" name="gender" class="inputField" value="other"> Other
+                        <p class="errorField"></p>
                     </div>
                     Employed:
                     <div>
