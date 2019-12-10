@@ -263,3 +263,16 @@ div.clearButton:hover {
   background-color: rgb(69, 168, 168);
   width: 40%;
 }
+
+body {
+  background-color: whitesmoke;
+}
+
+#content{
+  background-color: white;
+  overflow: auto;
+}
+
+.dark {
+  background-color: #a9a9a9;
+}

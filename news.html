@@ -61,105 +61,109 @@
                     <button type="button" id="submitButton" onclick="handleSubmit()">Submit</button>
                 </form>
                 <table id="personsTable" class="flex-column-item">
-                    <tr>
-                        <th>First name</th>
-                        <th>Last name</th>
-                        <th>Age</th>
-                        <th>Gender</th>
-                        <th>Employed</th>
-                        <th>Studies</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr id="row1">
-                        <td>Andrei</td>
-                        <td>Macovei</td>
-                        <td>23</td>
-                        <td>Other</td>
-                        <td>no</td>
-                        <td>Mathematics</td>
-                        <td><div class="clearButton" onclick="clearRow('row1')">Delete</div></td>
-                    </tr>
-                    <tr id="row2">
-                            <td>Vasile</td>
-                            <td>Ionescu</td>
-                            <td>25</td>
-                            <td>Male</td>
-                            <td>yes</td>
-                            <td>Biology</td>
-                            <td><div class="clearButton" onclick="clearRow('row2')">Delete</div></td>
-                    </tr>
-                    <tr id="row3">
-                            <td>Alexandra</td>
-                            <td>Abraham</td>
-                            <td>44</td>
-                            <td>Female</td>
-                            <td>yes</td>
-                            <td>None</td>
-                            <td><div class="clearButton" onclick="clearRow('row3')">Delete</div></td>
-                    </tr>
-                    <tr id="row4">
-                            <td>Costica</td>
-                            <td>Costan</td>
-                            <td>25</td>
-                            <td>Male</td>
-                            <td>yes</td>
-                            <td>Journalism</td>
-                            <td><div class="clearButton" onclick="clearRow('row4')">Delete</div></td>
-                    </tr>
-                    <tr id="row5">
-                            <td>Ioana</td>
-                            <td>Rotar</td>
-                            <td>28</td>
-                            <td>Female</td>
-                            <td>yes</td>
-                            <td>Journalism</td>
-                            <td><div class="clearButton" onclick="clearRow('row5')">Delete</div></td>
-                    </tr>
-                    <tr id="row6">
-                            <td>Ioana</td>
-                            <td>Rotar</td>
-                            <td>28</td>
-                            <td>Female</td>
-                            <td>yes</td>
-                            <td>Journalism</td>
-                            <td><div class="clearButton" onclick="clearRow('row6')">Delete</div></td>
-                    </tr>
-                    <tr id="row7">
-                            <td>Ioana</td>
-                            <td>Rotar</td>
-                            <td>28</td>
-                            <td>Female</td>
-                            <td>yes</td>
-                            <td>Journalism</td>
-                            <td><div class="clearButton" onclick="clearRow('row7')">Delete</div></td>
-                    </tr>
-                    <tr id="row8">
-                            <td>Ioana</td>
-                            <td>Rotar</td>
-                            <td>28</td>
-                            <td>Female</td>
-                            <td>yes</td>
-                            <td>Journalism</td>
-                            <td><div class="clearButton" onclick="clearRow('row8')">Delete</div></td>
-                    </tr>
-                    <tr id="row9">
-                            <td>Ioana</td>
-                            <td>Rotar</td>
-                            <td>28</td>
-                            <td>Female</td>
-                            <td>yes</td>
-                            <td>Journalism</td>
-                            <td><div class="clearButton" onclick="clearRow('row9')">Delete</div></td>
-                    </tr>
-                    <tr id="row10">
-                            <td>Ioana</td>
-                            <td>Rotar</td>
-                            <td>28</td>
-                            <td>Female</td>
-                            <td>yes</td>
-                            <td>Journalism</td>
-                            <td><div class="clearButton" onclick="clearRow('row10')">Delete</div></td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>First name</th>
+                            <th>Last name</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Employed</th>
+                            <th>Studies</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="row1">
+                            <td>Andrei</td>
+                            <td>Macovei</td>
+                            <td>23</td>
+                            <td>Other</td>
+                            <td>no</td>
+                            <td>Mathematics</td>
+                            <td><div class="clearButton" onclick="clearRow('row1')">Delete</div></td>
+                        </tr>
+                        <tr id="row2">
+                             <td>Vasile</td>
+                             <td>Ionescu</td>
+                             <td>25</td>
+                             <td>Male</td>
+                             <td>yes</td>
+                             <td>Biology</td>
+                             <td><div class="clearButton" onclick="clearRow('row2')">Delete</div></td>
+                        </tr>
+                        <tr id="row3">
+                             <td>Alexandra</td>
+                             <td>Abraham</td>
+                             <td>44</td>
+                             <td>Female</td>
+                             <td>yes</td>
+                             <td>None</td>
+                             <td><div class="clearButton" onclick="clearRow('row3')">Delete</div></td>
+                        </tr>
+                        <tr id="row4">
+                             <td>Costica</td>
+                             <td>Costan</td>
+                             <td>25</td>
+                             <td>Male</td>
+                             <td>yes</td>
+                             <td>Journalism</td>
+                             <td><div class="clearButton" onclick="clearRow('row4')">Delete</div></td>
+                        </tr>
+                        <tr id="row5">
+                             <td>Ioana</td>
+                             <td>Rotar</td>
+                             <td>28</td>
+                             <td>Female</td>
+                             <td>yes</td>
+                             <td>Journalism</td>
+                             <td><div class="clearButton" onclick="clearRow('row5')">Delete</div></td>
+                        </tr>
+                        <tr id="row6">
+                             <td>Ioana</td>
+                             <td>Rotar</td>
+                             <td>28</td>
+                             <td>Female</td>
+                             <td>yes</td>
+                             <td>Journalism</td>
+                             <td><div class="clearButton" onclick="clearRow('row6')">Delete</div></td>
+                        </tr>
+                        <tr id="row7">
+                             <td>Ioana</td>
+                             <td>Rotar</td>
+                             <td>28</td>
+                             <td>Female</td>
+                             <td>yes</td>
+                             <td>Journalism</td>
+                             <td><div class="clearButton" onclick="clearRow('row7')">Delete</div></td>
+                        </tr>
+                        <tr id="row8">
+                             <td>Ioana</td>
+                             <td>Rotar</td>
+                             <td>28</td>
+                             <td>Female</td>
+                             <td>yes</td>
+                             <td>Journalism</td>
+                             <td><div class="clearButton" onclick="clearRow('row8')">Delete</div></td>
+                        </tr>
+                        <tr id="row9">
+                             <td>Ioana</td>
+                             <td>Rotar</td>
+                             <td>28</td>
+                             <td>Female</td>
+                             <td>yes</td>
+                             <td>Journalism</td>
+                             <td><div class="clearButton" onclick="clearRow('row9')">Delete</div></td>
+                        </tr>
+                        <tr id="row10">
+                             <td>Ioana</td>
+                             <td>Rotar</td>
+                             <td>28</td>
+                             <td>Female</td>
+                             <td>yes</td>
+                             <td>Journalism</td>
+                             <td><div class="clearButton" onclick="clearRow('row10')">Delete</div></td>
+                        </tr>
+                </tbody>
                 </table>
             </div>
         </div>

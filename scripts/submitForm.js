@@ -9,6 +9,7 @@ function handleSubmit() {
         let employed = getInputValue('employmentSection')
         let study = getInputValue('studiesSection');
         insertTableRow(firstName, lastName, age, gender, employed, study);
+        mergeRows();
         clearForm();
     }
 }
@@ -16,6 +17,7 @@ function handleSubmit() {
 function insertTableRow(...values) {
     var table = document.getElementById('personsTable');
     var newRow = table.insertRow();
+    var rowIndex = table.rows.length - 1;
     newRow.setAttribute("id", `row${rowIndex}`);
     let cells = [];
     for (i = 0; i < table.rows[0].cells.length; i++)
@@ -74,4 +76,33 @@ function clearRow(id){
 
 function clearForm() {
     document.getElementById('personForm').reset();
+}
+
+function mergeRows() {
+    const previousRow = {};
+  const colsChanged = {};
+  let leftMerged = false;
+  let dark = false;
+
+  Array.from(document.querySelectorAll('tbody tr')).forEach((tr, rowIdx) => {
+    Array.from(tr.children).forEach((td, colIdx) => {
+      if (rowIdx > 0 && (colIdx === 0 || leftMerged) && previousRow[colIdx].text === td.innerText) {
+        previousRow[colIdx].elem.setAttribute('rowspan', ++previousRow[colIdx].span);
+        colsChanged[colIdx] = false;
+        td.remove();
+        if (colIdx === 0) {
+          leftMerged = true;
+        }
+      } else {
+        previousRow[colIdx] = { span: 1, text: td.innerText, elem: td, dark };
+        colsChanged[colIdx] = true;
+      }
+    });
+    const rowChanged = Object.values(colsChanged).every(Boolean);
+    dark = rowChanged && rowIdx > 0 ? !dark : dark;
+    if (dark) {
+      tr.classList.add('dark');
+    }
+    leftMerged = false;
+  });
 }
