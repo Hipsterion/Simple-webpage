@@ -13,7 +13,6 @@ p {
   font-family: 'Times New Roman', Times, serif;
   color: black;
   text-align: center;
-  
 }
 
 #topNavigationBar {
@@ -98,22 +97,27 @@ box-shadow: 0px -1px 2px rgb(69, 168, 168);
 }
 
 table {
+  margin-right: 2%;
+  flex-grow: 1;
   border-collapse: collapse;
   font-family: Arial, Helvetica, sans-serif;
+  overflow: auto;
 }
 th, td {
   text-align: left;
   padding: 9px 15px;
+  border: 2px solid whitesmoke;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+/* tr:nth-child(even){background-color: #f2f2f2} */
 
 th {
   background-color: rgb(69, 168, 168);
   color: white;
+  cursor: pointer;
 }
 
-div.clearButton {
+div.fakeButton {
     display:inline-block;
     color:#444;
     border:1px solid #CCC;
@@ -124,12 +128,12 @@ div.clearButton {
     text-align: center;
 }
 
-div.clearButton:active {
+div.fakeButton:active {
     color:red;
     box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
 }
 
-div.clearButton:hover {
+div.fakeButton:hover {
   background-color: rgb(69, 168, 168);
 }
 
@@ -139,10 +143,10 @@ div.clearButton:hover {
 }
 
 #personForm {
+  margin-right: 2%;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
-  padding-right: 1.25rem;
+  overflow: hidden;
   justify-content: space-between;
   align-items: center;
 }
@@ -264,6 +268,25 @@ div.clearButton:hover {
   width: 40%;
 }
 
+#editButtonsGroup {
+  width: 70%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#cancelButton {
+  background-color: rgb(201, 201, 159);
+  width: 30%;
+}
+
+#saveButton {
+  background-color: rgb(69, 168, 168);
+  width: 40%;
+}
+
+#submitButton, #cancelButton, #saveButton {
+  cursor: pointer;
+}
 body {
   background-color: whitesmoke;
 }
@@ -275,4 +298,25 @@ body {
 
 .dark {
   background-color: #a9a9a9;
+}
+
+img {
+  background-color: whites;
+  width: 35px;
+  height: 35px;
+  background: whitesmoke;
+  cursor: pointer;
+}
+
+.slider {
+  overflow: hidden;
+  max-width: 100%; 
+  max-height: 450px;
+	transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.slider.closed {
+  max-width: 0%;
 }
