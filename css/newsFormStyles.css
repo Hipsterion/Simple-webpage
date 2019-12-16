@@ -97,14 +97,15 @@ box-shadow: 0px -1px 2px rgb(69, 168, 168);
 }
 
 table {
+  width: 98%;
+  height: auto;
   margin-right: 2%;
-  flex-grow: 1;
   border-collapse: collapse;
   font-family: Arial, Helvetica, sans-serif;
   overflow: auto;
 }
 th, td {
-  text-align: left;
+  text-align: center;
   padding: 9px 15px;
   border: 2px solid whitesmoke;
 }
@@ -114,8 +115,11 @@ th, td {
 th {
   background-color: rgb(69, 168, 168);
   color: white;
-  cursor: pointer;
 }
+
+  th.clickable{
+    cursor: pointer;
+  }
 
 div.fakeButton {
     display:inline-block;
@@ -314,9 +318,55 @@ img {
   max-height: 450px;
 	transition-property: all;
 	transition-duration: .5s;
-	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+	transition-timing-function: cubic-bezier(1.0, 0, 0.58, 0.42);
 }
 
-.slider.closed {
+  .slider.closed {
   max-width: 0%;
+  transition-timing-function: cubic-bezier(0, 1.0, 0.42, 0.58);
+  }
+
+#tableSection {
+  flex-grow : 1;
+  margin-right: 2%;
+}
+
+#filterField {
+  position: relative;
+  width: 23%;
+  margin-left:26%;
+  text-align: center;
+}
+  
+  #filterField:focus {
+    outline-color: rgb(69, 168, 168);
+  }
+
+
+.tableCheckBox {
+  width: 50px;
+  height: 20px;
+  cursor: pointer;
+}
+.tableCheckBox:hover {
+  color: red;
+}
+
+div.headButton {
+  border:1px solid #CCC;
+  background:white;
+  box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+  cursor:pointer;
+  width: 80px;
+  height: 35px;
+  margin: 0px 2%;
+  padding: none;
+}
+
+div.headButton:hover {
+  background-color: rgb(69, 168, 168);
+}
+
+#selectHeadCell {
+  background-color: white;
 }

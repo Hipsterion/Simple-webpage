@@ -32,7 +32,6 @@
                         <div id="lastNameSection">
                             <input type="text" class="inputField" pattern="^[a-zA-Z]+$" required>
                             <p class="errorField"></p>
-
                         </div>
                         Age:
                         <div id="ageSection">
@@ -66,17 +65,22 @@
                             <button hidden type="button" id="saveButton">Save</button>
                     </form>
                 </div>
-                <table id="personsTable" class="flex-column-item">
-                        <tr>
-                            <th onclick="handleColumnSort(0)">First name</th>
-                            <th onclick="handleColumnSort(1)">Last name</th>
-                            <th onclick="handleColumnSort(2)">Age</th>
-                            <th onclick="handleColumnSort(3)">Gender</th>
-                            <th onclick="handleColumnSort(4)">Employed</th>
-                            <th onclick="handleColumnSort(5)">Studies</th>
-                            <th>Action</th>
-                        </tr>
-                </table>
+                <div id="tableSection">
+                    <input type="text" id="filterField" placeHolder="Filter by name" oninput="handleFilter()">
+                    <table id="personsTable" class="flex-column-item">
+                            <tr>
+                                <th id="selectHeadCell"><div class="fakeButton headButton" onclick="deletePerson(${personId})">Delete selected</div><div class="fakeButton headButton" onclick="deletePerson(${personId})">Clear selected</div></th>
+                                <th>Id</th>
+                                <th class="clickable sortableColumn default" onclick="handleColumnSort(2)">First name</th>
+                                <th class="clickable sortableColumn default" onclick="handleColumnSort(3)">Last name</th>
+                                <th class="clickable sortableColumn default" onclick="handleColumnSort(4)">Age</th>
+                                <th class="clickable sortableColumn default" onclick="handleColumnSort(5)">Gender</th>
+                                <th class="clickable sortableColumn default" onclick="handleColumnSort(6)">Employed</th>
+                                <th class="clickable sortableColumn default" onclick="handleColumnSort(7)">Studies</th>
+                                <th>Actions</th>
+                            </tr>
+                    </table>
+                </div>
             </div>
         </div>
         <div id="footer" class="grid-item">
