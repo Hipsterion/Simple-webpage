@@ -352,21 +352,17 @@ img {
   color: red;
 }
 
-div.headButton {
-  border:1px solid #CCC;
-  background:white;
-  box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
-  cursor:pointer;
-  width: 80px;
-  height: 35px;
-  margin: 0px 2%;
-  padding: none;
-}
-
-div.headButton:hover {
+#selectHeadCell {
   background-color: rgb(69, 168, 168);
 }
 
-#selectHeadCell {
-  background-color: white;
+div.disabled {
+  display: none;
+}
+
+#deleteSelectedRowsButton, #clearSelectedRowsButton {
+  width: 65px;
+  height: 40px;
+  padding: none;
+  margin: none;
 }

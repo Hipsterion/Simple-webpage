@@ -4,6 +4,7 @@ function onLoad(){
         personsList = JSON.parse(localStorage.getItem('persons'));
         refreshTable(personsList);
     }
+    
     if(localStorage.getItem("identity") == null)
         localStorage.setItem("identity", JSON.stringify(0));
 }
@@ -104,19 +105,23 @@ function insertRowInTable(table, j, list) {
 function insertActionButtonsInRow(table, cells) {
     var rowIndex = table.rows.length - 2;
     var personId = table.rows[rowIndex+1].cells[1].innerHTML;
-    cells[0].innerHTML = `<input type="checkbox" class="tableCheckBox">`;
+    cells[0].innerHTML = `<input type="checkbox" class="tableCheckBox" onclick="handleChangedTableCheckbox(this)">`;
 
-    cells[cells.length - 1].innerHTML = `<div class="fakeButton" onclick="deletePerson(${personId})">Delete</div><div></div><div class="fakeButton" onclick="handleEdit(${personId})">Edit</div>`;
+    cells[cells.length - 1].innerHTML = `<div class="fakeButton" onclick="handleDeletePerson(${personId})">Delete</div><div></div><div class="fakeButton" onclick="handleEdit(${personId})">Edit</div>`;
 }
 
-function deletePerson(id){
+function deletePerson(id) {
+    console.log(id);
+    personsList.splice(personsList.findIndex(x => x.id === id), 1);
+}
+function handleDeletePerson(id){
     if(document.querySelector("#cancelButton").hidden == false) 
         alert("You are already in a process. Cancel it and try again");
     else {
         if(confirm("Confirm the deletion of the row")) {
-            personsList.splice(personsList.findIndex(x => x.id === id), 1);
+            deletePerson(id);
             updateLocalStorage();
-            handleFilter();
+            refreshFilteredTable();
             }
     }
 }
@@ -207,7 +212,7 @@ function handleSave(id) {
         personsList[personIndex]['employed'] = employed;
         personsList[personIndex]['study'] = study;
         updateLocalStorage();
-        handleFilter();
+        refreshFilteredTable();
         toggleOffEditButtons();
         clearForm();
     }
@@ -288,8 +293,46 @@ function handleColumnSort(columnIndex){
     }
 }
 
-function handleFilter() {
+function refreshFilteredTable() {
     var inputText = document.querySelector("#filterField").value;
     let filteredList = personsList.filter(x => (x.firstName + x.lastName).toLowerCase().includes(inputText.toLowerCase()));
     refreshTable(filteredList);
+}
+
+function isAnyRowSelected() {
+    return Array.from(document.getElementsByClassName("tableCheckBox")).filter((item) => item.checked).length != 0;
+}
+
+function handleDeleteSelected() {
+    if(isAnyRowSelected()) {
+        if(confirm("Confirm the deletion of the selected rows")){
+            var table = document.getElementById("personsTable");
+            for(var index = 1 ; index < table.rows.length; index++){
+                if(table.rows[index].cells[0].querySelector(".tableCheckBox").checked){
+                    deletePerson(Number.parseInt(table.rows[index].cells[1].innerHTML));
+                }
+            }
+            updateLocalStorage();
+            refreshFilteredTable();
+            Array.from(document.querySelectorAll("#selectHeadCell *")).forEach(item => item.disabled = true);
+        }
+    }
+    else 
+        alert("You haven't selected any row yet");
+}
+
+function clearSelectedRows() {
+    Array.from(document.getElementsByClassName("tableCheckBox")).forEach(item => item.checked = false);
+    Array.from(document.querySelectorAll("#selectHeadCell *")).forEach(item => item.disabled = true);
+}
+
+function handleChangedTableCheckbox(checkbox) {
+    if(checkbox.checked) {
+        Array.from(document.querySelectorAll("#selectHeadCell *")).forEach(item => item.disabled = false);
+    } 
+    else {
+        if(!isAnyRowSelected()) {
+            Array.from(document.querySelectorAll("#selectHeadCell *")).forEach(item => item.disabled = true);
+        }
+    }
 }
