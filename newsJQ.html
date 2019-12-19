@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Title wannabe</title>
+        <link rel="stylesheet" type="text/css" href="css\newsJQ.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="./scripts/jqueryForm.js"></script>
+    </head>
+<body>
+    <div class="grid-container">
+        <div id="header" class="grid-item">
+            <div id="topNavigationBar">
+                <a class="navItem" href="index.html">Home</a>
+                <a href="bmws.html" class="navItem">About us</a>
+                <a href="audis.html" class="navItem">Staff</a>
+                <a href="mercedes.html" class="navItem">Statistics</a>
+                <a href="news.html" class="navItem active">Share the news</a>
+            </div>
+        </div>
+        <div id="content" class="grid-item">
+            <img id="showButton" hidden src="/images/hideIcon.jpg" alt="Show icon" onclick="toggleForm()">
+            <img id="hideButton" src="/images/showIcon.jpg" alt="Hide icon" onclick="toggleForm()">
+            <div id="dataContainer">
+                    <div id="formSection">
+                        <form id="personForm" onsubmit="handleSubmit()" target="_self" class="flex-column-item slider">
+                            <h4 id="headTitle">Complete this form</h4>    
+                            First name:
+                            <div id="firstNameSection"> 
+                                <input type="text" class='inputField' pattern="^[a-zA-Z]+$" required>
+                                <p class="errorField"></p>
+                            </div>
+                            Last name:
+                            <div id="lastNameSection">
+                                <input type="text" class="inputField" pattern="^[a-zA-Z]+$" required>
+                                <p class="errorField"></p>
+                            </div>
+                            Age:
+                            <div id="ageSection">
+                                <input type="number" class="inputField" min="1" required>
+                                <p class="errorField"></p>
+                            </div>
+                            Gender:
+                            <div id="genderSection">
+                                <input type="radio" name="gender" class="inputField" value="Male" required> Male
+                                <input type="radio" name="gender" class="inputField" value="Female"> Female
+                                <input type="radio" name="gender" class="inputField" value="Other"> Other
+                                <p class="errorField"></p>
+                            </div>
+                            Employed:
+                            <div id="employmentSection">
+                                <input class = "inputField" type="checkbox">
+                            </div><br>
+                            Studies in:
+                            <div id="studiesSection">
+                                <select name="study" class="inputField">
+                                    <option value="None">None</option>
+                                    <option value="Mathematics">Mathematics</option>
+                                    <option value="Biology">Biology</option>
+                                    <option value="Informatics">Informatics</option>
+                                    <option value="journalism">Journalism</option>
+                                </select>
+                            </div><br>
+                            <button type="button" id="submitButton" onclick="handleSubmit()">Submit</button>
+                            <div id="editButtonsGroup">
+                                <button hidden type="button" id="cancelButton" onclick="handleCancel()">Cancel</button>
+                                <button hidden type="button" id="saveButton">Save</button>
+                        </form>
+                    </div>
+                </div>
+                <div id="tableSection">
+                    <input type="text" id="filterField" placeHolder="Filter by name" oninput="refreshFilteredTable()">
+                    <table id="personsTable" class="flex-column-item">
+                        <thead>
+                            <tr>
+                                <th id="selectHeadCell"><button id="deleteSelectedRowsButton" class="fakeButton headButton" onclick="handleDeleteSelected()" disabled>Delete selected</button><button id="clearSelectedRowsButton" onclick="clearSelectedRows()" disabled >Clear selected</button></th>
+                                <th>Id</th>
+                                <th class="clickable sortableColumn default" onclick="handleColumnSort(2)">First name</th>
+                                <th class="clickable sortableColumn default" onclick="handleColumnSort(3)">Last name</th>
+                                <th class="clickable sortableColumn default" onclick="handleColumnSort(4)">Age</th>
+                                <th class="clickable sortableColumn default" onclick="handleColumnSort(5)">Gender</th>
+                                <th class="clickable sortableColumn default" onclick="handleColumnSort(6)">Employed</th>
+                                <th class="clickable sortableColumn default" onclick="handleColumnSort(7)">Studies</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="footer" class="grid-item">
+            <p>Posted by: Bogdan Dascal</p>
+            <p>Contact information: <a href="mailto:someone@example.com">
+            someone@example.com</a></p>
+        </div>
+    </div>
+</body>
+</html>
