@@ -35,18 +35,18 @@ function validateForm() {
 }
 
 function validateFormSection(sectionId) {
-    let section = document.getElementById(`${sectionId}`);
-    let inputFields = document.querySelectorAll(`#${sectionId} .inputField`);
-    let errorField = document.querySelector(`#${sectionId} .errorField`);
-    inputFields.forEach(inputField => {
-        errorField.innerHTML = '';
-        if (!inputField.checkValidity()) 
-            errorField.innerHTML = inputField.validationMessage; 
-    })
+    let section = $(`${sectionId}`)[0];
+    let inputFields = $(`#${sectionId} .inputField`);
+    let errorField = $(`#${sectionId} .errorField`);
+    inputFields.each(function(index, item){
+        errorField.html('');
+        if(!item.checkValidity())
+            errorField.html(item.validationMessage);
+    });
 }
 
 function formIsValid() {
-    return document.querySelector("#personForm").checkValidity();
+    return $("#personForm")[0].checkValidity();
 }
 
 function addPerson(...values) {
@@ -80,7 +80,7 @@ function insertRowInTable(table, item) {
     $(cells[3]).html(item['lastName']);
     $(cells[4]).html(item['age']);
     $(cells[5]).html(item['gender']);
-    $(cells[6]).html(item['employed']);
+    $(cells[6]).html(`${item['employed']}`);
     $(cells[7]).html(item['study']);
     insertActionButtonsInRow(table, cells);
 }
@@ -135,43 +135,37 @@ function mergeRows() {
 }
 
 function clearForm() {
-    document.getElementById('personForm').reset();
+    $('#personForm')[0].reset();
 }
 
 function handleCancel(){
     clearForm();
-    toggleOffEditButtons();
+    toggleEditButtons();
 }
 
-function toggleOffEditButtons() {
-    document.querySelector('#submitButton').hidden = false;
-    document.querySelector('#cancelButton').hidden = true;
-    document.querySelector('#saveButton').hidden = true;
-}
-
-function toggleOnEditButtons() {
-    document.querySelector('#submitButton').hidden = true;
-    document.querySelector('#cancelButton').hidden = false;
-    document.querySelector('#saveButton').hidden = false;
+function toggleEditButtons() {
+    $('#submitButton').toggle();
+    $('#cancelButton').toggle();
+    $('#saveButton').toggle();
 }
 
 function handleEdit(id) {
-    if(document.querySelector("#cancelButton").hidden == false) 
+    if(!$("#cancelButton").is(":hidden")) 
         alert("You are already editing a person. Cancel anytime");
     else{
         var personIndex = personsList.findIndex(x => x.id === id);
-        document.querySelector(`#firstNameSection .inputField`).value = personsList[personIndex]['firstName'];
-        document.querySelector(`#lastNameSection .inputField`).value = personsList[personIndex]['lastName'];
-        document.querySelector(`#ageSection .inputField`).value = personsList[personIndex]['age'];
-        document.querySelectorAll(`#genderSection .inputField`).forEach(radioButton => {
-            if(radioButton.value == personsList[personIndex]['gender'])
-                radioButton.checked = true;
+        $(`#firstNameSection .inputField`).val(personsList[personIndex]['firstName']);
+        $(`#lastNameSection .inputField`).val(personsList[personIndex]['lastName']);
+        $(`#ageSection .inputField`).val(personsList[personIndex]['age']);
+        $(`#genderSection .inputField`).each(function(index, item) {
+            if(item.value == personsList[personIndex]['gender'])
+                item.checked = true;
         });
-        document.querySelector(`#employmentSection .inputField`).checked = personsList[personIndex]['employed'];
-        document.querySelector(`#studiesSection .inputField`).value = personsList[personIndex]['study'];
+        $(`#employmentSection .inputField`).prop("checked", personsList[personIndex]['employed']);
+        $(`#studiesSection .inputField`).val(personsList[personIndex]['study']);
         validateForm();
-        document.querySelector('#saveButton').setAttribute("onclick", `handleSave(${id})`);
-        toggleOnEditButtons();   
+        $('#saveButton').attr("onclick", `handleSave(${id})`);
+        toggleEditButtons();   
     }
 }
 
@@ -179,12 +173,12 @@ function handleSave(id) {
     validateForm();
     if(formIsValid())
     {
-        let firstName = getInputValue('firstNameSection');
-        let lastName = getInputValue('lastNameSection');
-        let age = getInputValue('ageSection');
-        let gender = getInputValue('genderSection')
-        let employed = getInputValue('employmentSection')
-        let study = getInputValue('studiesSection');
+        let firstName = $('#firstNameSection .inputField').val();
+        let lastName = $('#lastNameSection .inputField').val();
+        let age = $('#ageSection .inputField').val();
+        let gender = $('#genderSection input[name="gender"]:checked').val();
+        let employed = $('#employmentSection .inputField').is(":checked");
+        let study = $('#studiesSection .inputField').val();
         var personIndex = personsList.findIndex(x => x.id === id);
         personsList[personIndex]['firstName'] = firstName;
         personsList[personIndex]['lastName'] = lastName;
@@ -194,7 +188,7 @@ function handleSave(id) {
         personsList[personIndex]['study'] = study;
         updateLocalStorage();
         refreshFilteredTable();
-        toggleOffEditButtons();
+        toggleEditButtons();
         clearForm();
     }
 }
@@ -236,9 +230,7 @@ function sortTable(){
 }
 
 function toggleForm(){
-    $("#personForm").slideToggle("slow");
-    console.log($("#personForm"));
-    //document.querySelector("#personForm").classList.toggle('closed');
+    $("#formSection").animate({width:'toggle'},700);
     toggleShowHideButtons();
 }
 
@@ -272,7 +264,7 @@ function handleColumnSort(columnIndex){
     else {
         refreshTable(personsList);
         columns[columnIndex].classList.add("default");
-        columns[columnIndex].classList.remove("desc");
+        columns[columnIndeT].classList.remove("desc");
     }
 }
 
