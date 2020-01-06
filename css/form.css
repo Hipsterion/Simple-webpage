@@ -1,0 +1,373 @@
+html, body{
+    margin:0;
+    height: 100%;
+    width: 100%;
+  }
+  
+  h1 {
+    background-color: transparent;
+    text-align: center;
+  }
+  
+  p {
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    text-align: center;
+  }
+  
+  #topNavigationBar {
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #fff;
+    width: 100%;
+    height: 10%;
+    box-shadow: 0px 5px 9px #dedede;
+  }
+  
+  #topNavigationBar a{
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: #aaa;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-top: 2%;
+    font-size: 12px;
+    padding: 10px 10px;
+    font-family: 'Roboto', sans-serif;
+    transition: all .5s;
+  }
+  
+  #topNavigationBar a:after, #topNavigationBar a:before {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: #aaa;
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: all .5s;
+  }
+  
+  #topNavigationBar a {
+    position: relative;
+  }
+  
+  #topNavigationBar a:after {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 5px;
+    width: 0%;
+    content: '.';
+    color: transparent;
+    background: #aaa;
+    height: 2px;
+  }
+  
+  #topNavigationBar a:hover:after{
+    width: 100%;
+  }
+  
+  #topNavigationBar a:hover {
+    color: #555;
+  }
+  
+  #topNavigationBar a.active {
+    color: #555;
+  }
+  
+   #footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  box-shadow: 0px -1px 2px rgb(69, 168, 168);
+  
+  } 
+  
+  #footer p {
+    color: #aaa;
+    padding: 0% 5%;
+  }
+  
+  #footer a{
+    color: rgb(69, 168, 168)
+  }
+  
+  table {
+    width: 96%;
+    height: auto;
+    margin-right: 2%;
+    margin-left: 3%;
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: auto;
+  }
+  th, td {
+    text-align: center;
+    padding: 9px 0px;
+    border: 2px solid whitesmoke;
+  }
+  
+  tr:nth-child(even){background-color: #f2f2f2} 
+  
+  th.bootstrap-overrides {
+    background-color: rgb(69, 168, 168);
+    color: white;
+    text-align: center;
+  }
+  
+    th.clickable{
+      cursor: pointer;
+    }
+  
+  div.fakeButton {
+      display:inline-block;
+      color:#444;
+      border:1px solid #CCC;
+      background:#DDD;
+      box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+      cursor:pointer;
+      vertical-align:middle;
+      text-align: center;
+  }
+  
+  div.fakeButton:active {
+      color:red;
+      box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+  }
+  
+  div.fakeButton:hover {
+    background-color: rgb(69, 168, 168);
+  }
+  
+  #headTitle {
+    text-align: left;
+    margin-right: 2%;
+  }
+  
+  #personForm {
+    margin-right: 2%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #personForm input {
+    margin: 0 .25rem;
+    min-width: 40px;
+    border-left: 3px solid;
+    border-radius: 5px;
+    transition: border-color .5s ease-out;
+  }
+  #personForm input:optional {
+    border-left-color: yellow;
+  }
+  #personForm input:required:valid {
+    border-left-color: palegreen;
+  }
+  #personForm input:required:invalid {
+    border-left-color: salmon;
+  }
+  #personForm input:required:focus:valid {
+    background-size: 25px;
+  }
+  #personForm input:focus:invalid {
+    background-size: 45px;
+  }
+  
+  #personForm input:focus {
+    outline: none;
+    box-shadow: 0 0 5px black;
+  }
+  
+  #personForm input[type="radio"], #personForm input[type="checkbox"]{
+    -webkit-appearance: none;
+       -moz-appearance: none;
+       appearance: none;
+       position: relative;
+       background-color: #f1f1f1;
+       color: #666;
+       top: 10px;
+       height: 20px;
+       width: 1%;
+       border: 0;
+       border-radius: 30px;
+       cursor: pointer;     
+       margin-right: 7px;
+  }
+  #personForm input[type="radio"]:checked::before, #personForm input[type="checkbox"]:checked:before
+  {
+       position: absolute;
+       left: 17px;
+       top: 2px;
+       content: '\02143';
+       transform: rotate(40deg);
+  }
+  #personForm input[type="radio"]:hover, #personForm input[type="checkbox"]:hover
+  {
+       background-color: #f7f7f7;
+  }
+  #personForm input[type="radio"]:checked, #personForm input[type="checkbox"]:checked
+  {
+       background-color: #f1f1f1;
+  }
+  
+  #personForm input[type="checkbox"]
+  {
+       border-radius: 3px;
+  }
+  
+  #personForm select {
+    width: 100%;
+  }
+  
+  .errorField {
+    color: salmon;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto 1fr auto;
+    height: 100%;
+    width: 100%;
+  }
+  
+  #header {
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    justify-content: center;
+  }
+  
+  #content {
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    margin-top: 7%;
+  }
+  
+  #footer {
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+  
+  #dataContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  
+  #submitButton {
+    color: white;
+    background-color: rgb(69, 168, 168);
+    width: 40%;
+  }
+  
+  #editButtonsGroup {
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  #cancelButton {
+    background-color: rgb(201, 201, 159);
+    width: 30%;
+  }
+  
+  #saveButton {
+    background-color: rgb(69, 168, 168);
+    width: 40%;
+  }
+  
+  #submitButton, #cancelButton, #saveButton {
+    cursor: pointer;
+  }
+  body {
+    background-color: whitesmoke;
+  }
+  
+  #content{
+    background-color: white;
+    overflow: auto;
+  }
+  
+  .dark {
+    background-color: #a9a9a9;
+  }
+  
+  img {
+    background-color: whites;
+    width: 35px;
+    height: 35px;
+    background: whitesmoke;
+    cursor: pointer;
+  }
+  
+  #tableSection {
+    flex-grow : 1;
+    margin-right: 2%;
+  }
+  
+  #filterField {
+    position: relative;
+    width: 23%;
+    margin-left:26%;
+    text-align: center;
+  }
+    
+    #filterField:focus {
+      outline-color: rgb(69, 168, 168);
+    }
+  
+  .tableCheckBox {
+    width: 50px;
+    height: 20px;
+    cursor: pointer;
+  }
+  .tableCheckBox:hover {
+    color: red;
+  }
+  
+  #selectHeadCell {
+    background-color: rgb(69, 168, 168);
+  }
+  
+  div.disabled {
+    display: none;
+  }
+  
+  #deleteSelectedRowsButton, #clearSelectedRowsButton {
+    width: 65px;
+    height: 40px;
+    padding: none;
+    margin: none;
+    font-family: initial;
+    font-size: initial;
+    line-height: normal;
+  }
+
+#formSection {
+  margin-bottom: 2%;
+}  
+
+#personForm {
+    width: 100%;
+    min-width: 500px;
+}
+
+/* BOOTSTRAP */
+
+
+.btn-primary.bootstrap-overrides {
+    background-color: rgb(69, 168, 168);
+}
