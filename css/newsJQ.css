@@ -111,11 +111,13 @@ html, body{
     border: 2px solid whitesmoke;
   }
   
-  /* tr:nth-child(even){background-color: #f2f2f2} */
+  tr:nth-child(even){background-color: #f2f2f2} 
   
   th {
     background-color: rgb(69, 168, 168);
     color: white;
+    width: 1rem;
+
   }
   
     th.clickable{
@@ -263,7 +265,6 @@ html, body{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    align-items: baseline;
     flex-wrap: wrap;
   }
   

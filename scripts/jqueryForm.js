@@ -230,7 +230,7 @@ function sortTable(){
 }
 
 function toggleForm(){
-    $("#formSection").animate({width:'toggle'},700);
+    $("#formSection").animate({width:'toggle'},1000);
     toggleShowHideButtons();
 }
 

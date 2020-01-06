@@ -73,7 +73,10 @@
                     <table id="personsTable" class="flex-column-item">
                         <thead>
                             <tr>
-                                <th id="selectHeadCell"><button id="deleteSelectedRowsButton" class="fakeButton headButton" onclick="handleDeleteSelected()" disabled>Delete selected</button><button id="clearSelectedRowsButton" onclick="clearSelectedRows()" disabled >Clear selected</button></th>
+                                <th id="selectHeadCell">
+                                    <button id="deleteSelectedRowsButton" class="fakeButton headButton" onclick="handleDeleteSelected()" disabled>Delete selected</button>
+                                    <button id="clearSelectedRowsButton" onclick="clearSelectedRows()" disabled >Clear selected</button>
+                                </th>
                                 <th>Id</th>
                                 <th class="clickable sortableColumn default" onclick="handleColumnSort(2)">First name</th>
                                 <th class="clickable sortableColumn default" onclick="handleColumnSort(3)">Last name</th>

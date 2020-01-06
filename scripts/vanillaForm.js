@@ -159,10 +159,10 @@ function clearForm() {
 
 function handleCancel(){
     clearForm();
-    toggleOffEditButtons();
+    toggleEditButtons();
 }
 
-function toggleOffEditButtons() {
+function toggleEditButtons() {
     document.querySelector('#submitButton').hidden = false;
     document.querySelector('#cancelButton').hidden = true;
     document.querySelector('#saveButton').hidden = true;
@@ -213,7 +213,7 @@ function handleSave(id) {
         personsList[personIndex]['study'] = study;
         updateLocalStorage();
         refreshFilteredTable();
-        toggleOffEditButtons();
+        toggleEditButtons();
         clearForm();
     }
 }
