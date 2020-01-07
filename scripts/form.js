@@ -1,6 +1,7 @@
 let personsList = [];
 
 $(document).ready(function(){
+    //showConfirmationModal('Confirm Deletion', 'Confirm deletion of row', 'sd');
     if(localStorage.getItem('persons') !== null) {
         personsList = JSON.parse(localStorage.getItem('persons'));
         refreshTable(personsList);
@@ -93,18 +94,17 @@ function insertActionButtonsInRow(table, cells) {
 }
 
 function deletePerson(id) {
+    console.log("aham");
     personsList.splice(personsList.findIndex(x => x.id === id), 1);
 }
 function handleDeletePerson(id){
-    if(document.querySelector("#cancelButton").hidden == false) 
+    if($("#cancelButton").is(":visible")) 
         alert("You are already in a process. Cancel it and try again");
     else {
-        $('#confirmationModal').modal('show');
-        // if(confirm("Confirm the deletion of the row")) {
-        //     deletePerson(id);
-        //     updateLocalStorage();
-        //     refreshFilteredTable();
-        //     }
+        if(showConfirmationModal('Delete Row', 'Confirm deletion of row', `deletePerson(${id})`)) {
+            updateLocalStorage();
+            refreshFilteredTable();
+        }
     }
 }
 
@@ -151,7 +151,7 @@ function toggleEditButtons() {
 }
 
 function handleEdit(id) {
-    if(!$("#cancelButton").is(":hidden")) 
+    if($("#cancelButton").is(":visible"))
         alert("You are already editing a person. Cancel anytime");
     else{
         var personIndex = personsList.findIndex(x => x.id === id);
@@ -312,3 +312,15 @@ function handleChangedTableCheckbox(checkbox) {
         }
     }
 }
+
+//after bootstrap
+
+function showConfirmationModal(titleText, bodyText, confirmEffect) {
+    var confirmDialog = $('#confirmationModal').first();
+    confirmDialog.find('.modal-title').html(titleText);
+    confirmDialog.find('.modal-body').html(bodyText);
+    confirmDialog.find('.btn-primary').attr('onclick',`${confirmEffect}; return true;`);
+    confirmDialog.find('.btn-danger').attr('onclick','return false;');
+    confirmDialog.modal('show');
+}
+

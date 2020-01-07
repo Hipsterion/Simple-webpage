@@ -292,7 +292,7 @@ html, body{
   #submitButton, #cancelButton, #saveButton {
     cursor: pointer;
   }
-  body {
+  body.bootstrap-overrides {
     background-color: whitesmoke;
   }
   
@@ -370,4 +370,16 @@ html, body{
 
 .btn-primary.bootstrap-overrides {
     background-color: rgb(69, 168, 168);
+}
+
+#editButtonsGroup button {
+  display: none;
+}
+
+#personForm {
+  min-width: 350px;
+}
+
+body.modal-open{
+  padding-right: 0px !important;
 }

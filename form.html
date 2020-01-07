@@ -3,31 +3,26 @@
     <head>
         <meta charset="utf-8"/>
         <title>Title wannabe</title>
-        <link rel="stylesheet" type="text/css" href="css\form.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="./scripts/form.js"></script>
-
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="css\form.css">
+        <script src="./scripts/form.js"></script>
+
+        
     </head>
-<body>
+<body class="bootstrap-overrides">
     <div class="modal fade" id="confirmationModal">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
-      
-            <!-- Modal Header -->
             <div class="modal-header">
               <h4 class="modal-title">Modal Heading</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-      
-            <!-- Modal body -->
             <div class="modal-body">
               Modal body..
             </div>
-      
-            <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="button" class="bootstrap-overrides btn btn-primary" data-dismiss="modal">Delete</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
@@ -49,7 +44,7 @@
             <img id="showButton" hidden src="/images/hideIcon.jpg" alt="Show icon" onclick="toggleForm()">
             <img id="hideButton" src="/images/showIcon.jpg" alt="Hide icon" onclick="toggleForm()">
             <div id="dataContainer">
-                    <div id="formSection" class="col-dmd-3">
+                    <div id="formSection" class="col-mdd-3">
                         <form id="personForm" onsubmit="handleSubmit()" target="_self" class="flex-column-item slider">
                             <h4 id="headTitle">Complete this form</h4>    
                             First name:
@@ -90,12 +85,12 @@
                             </div><br>
                             <button type="button" id="submitButton" onclick="handleSubmit()">Submit</button>
                             <div id="editButtonsGroup">
-                                <button hidden type="button" id="cancelButton" onclick="handleCancel()">Cancel</button>
-                                <button hidden type="button" id="saveButton">Save</button>
+                                <button type="button" id="cancelButton" onclick="handleCancel()">Cancel</button>
+                                <button type="button" id="saveButton">Save</button>
                         </form>
                     </div>
                 </div>
-                <div id="tableSection" class="col-md-d8">
+                <div id="tableSection" class="col-mdd-8">
                     <input type="text" id="filterField" placeHolder="Filter by name" oninput="refreshFilteredTable()">
                     <table id="personsTable" class="flex-column-item">
                         <thead>
