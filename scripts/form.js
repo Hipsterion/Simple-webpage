@@ -1,7 +1,6 @@
 let personsList = [];
 
 $(document).ready(function(){
-    //showConfirmationModal('Confirm Deletion', 'Confirm deletion of row', 'sd');
     if(localStorage.getItem('persons') !== null) {
         personsList = JSON.parse(localStorage.getItem('persons'));
         refreshTable(personsList);
@@ -94,18 +93,20 @@ function insertActionButtonsInRow(table, cells) {
 }
 
 function deletePerson(id) {
-    console.log("aham");
     personsList.splice(personsList.findIndex(x => x.id === id), 1);
 }
 function handleDeletePerson(id){
     if($("#cancelButton").is(":visible")) 
         alert("You are already in a process. Cancel it and try again");
     else {
-        if(showConfirmationModal('Delete Row', 'Confirm deletion of row', `deletePerson(${id})`)) {
-            updateLocalStorage();
-            refreshFilteredTable();
-        }
+        showConfirmationModal('Delete Row', 'Confirm deletion of row', `deletePersonOnAction(${id})`)
     }
+}
+
+function deletePersonOnAction(id) {
+    deletePerson(id);
+    updateLocalStorage();
+    refreshFilteredTable();
 }
 
 function findPerson(id){
@@ -281,20 +282,22 @@ function isAnyRowSelected() {
 
 function handleDeleteSelected() {
     if(isAnyRowSelected()) {
-        if(confirm("Confirm the deletion of the selected rows")){
-            var table = document.getElementById("personsTable");
-            for(var index = 1 ; index < table.rows.length; index++){
-                if(table.rows[index].cells[0].querySelector(".tableCheckBox").checked){
-                    deletePerson(Number.parseInt(table.rows[index].cells[1].innerHTML));
-                }
-            }
-            updateLocalStorage();
-            refreshFilteredTable();
-            Array.from(document.querySelectorAll("#selectHeadCell *")).forEach(item => item.disabled = true);
-        }
+        showConfirmationModal('Delete Rows', 'Confirm deletion of rows', `deletePersonsOnAction()`);
     }
     else 
         alert("You haven't selected any row yet");
+}
+
+function deletePersonsOnAction() {
+    var table = document.getElementById("personsTable");
+    for(var index = 1 ; index < table.rows.length; index++){
+        if(table.rows[index].cells[0].querySelector(".tableCheckBox").checked){
+            deletePerson(Number.parseInt(table.rows[index].cells[1].innerHTML));
+        }
+    }
+    updateLocalStorage();
+    refreshFilteredTable();
+    Array.from(document.querySelectorAll("#selectHeadCell *")).forEach(item => item.disabled = true);
 }
 
 function clearSelectedRows() {
@@ -319,8 +322,7 @@ function showConfirmationModal(titleText, bodyText, confirmEffect) {
     var confirmDialog = $('#confirmationModal').first();
     confirmDialog.find('.modal-title').html(titleText);
     confirmDialog.find('.modal-body').html(bodyText);
-    confirmDialog.find('.btn-primary').attr('onclick',`${confirmEffect}; return true;`);
-    confirmDialog.find('.btn-danger').attr('onclick','return false;');
+    confirmDialog.find('.btn-primary').attr('onclick',`${confirmEffect}`);
     confirmDialog.modal('show');
 }
 
