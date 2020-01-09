@@ -9,3 +9,25 @@ promise.then(
     error => console.log('error:', error)
 );
 
+$(document).ready(function(){
+
+})
+
+function toggleShareRatingForm() {
+    $('#ratingForm').fadeIn('show');
+}
+
+
+function handleCancelForm() {
+    $('#ratingForm').fadeOut('normal');
+    $('#ratingForm')[0].reset();
+}
+
+function handleSubmitForm() {
+    var movieId = $('#idField').val();
+    var ratingValue = $('#ratingField').val();
+    $.post(`https://api.themoviedb.org/3/movie/${movieId}/rating?api_key=8918eeb157819cd67ed7afef14cea55c&session_id=90d3291a67e856264a35ae84d2da89f3ba618c75`, {"value": ratingValue}, function(data, status){alert("Data: " + data + "\nStatus: " + status)});
+
+    $('#ratingForm')[0].reset();
+    $('#ratingForm').fadeOut('normal');
+}

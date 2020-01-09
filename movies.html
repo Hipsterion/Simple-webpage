@@ -42,7 +42,11 @@
         </div>
         <div id="content" class="grid-item container-fluid">
             <div id="dataContainer">
-                        <div class="wrap-table100">
+                <div id="ratingSection">
+                    <img src="images/rating-stars.jpg" alt="Rating Stars">
+                    <button id="shareRatingButton" type="button" class="btn btn-secondary" onclick="toggleShareRatingForm()">Share your rating</button>
+                </div> 
+                <div class="wrap-table100">
                             <div class="table100">
                                 <table id="topMoviesTable">
                                     <thead>
@@ -64,10 +68,25 @@
                 </div>
             </div>
             <div id="footer" class="grid-item">
-                <p>Posted by: Bogdan Dascal</p>
-                <p>Contact information: <a href="mailto:someone@example.com">
-                someone@example.com</a></p>
+                <div>
+                    <small>Posted by: Bogdan Dascal</small>
+                </div>
             </div>
+            <form id="ratingForm" target="_self">
+                <h4>Share your rating</h4>
+                <div class="form-group">
+                  <label for="exampleInputId">Movie ID</label>
+                  <input id='idField' type="number" class="form-control" id="exampleInputId" aria-describedby="idHelp" placeholder="Enter ID">
+                  <small id="idHelp" class="form-text text-muted">You can always see the ids avalaible.</small>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputRating">Your Rating</label>
+                  <input id='ratingField' type="number" class="form-control" id="exampleInputRating" placeholder="Enter Rating">
+                  <small id="ratingHelp" class="form-text text-muted">Choose anything between 1 and 10.</small>
+                </div>
+                <button id="submitRating" type="button" class="btn btn-primary" onclick="handleSubmitForm()">Submit</button>
+                <button id="cancelRating" type="button" class="btn btn-danger" onclick="handleCancelForm()">Cancel</button>
+              </form>
         </div>
     </div>
 </body>
