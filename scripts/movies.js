@@ -5,13 +5,28 @@ $(document).ready(function(){
     promise.then(
     data => {
         $.each(data['results'], function(index, movie){
-            $('#topMoviesTable > tbody:last-child').append(`<tr data-toggle="tooltip" title data-html="true" data-original-title='<img src="https://cdn.collider.com/wp-content/uploads/2019/10/star-wars-9-poster.jpg" alt="Smiley face">'><td>${movie["popularity"]}</td><td>${movie['vote_count']}</td><td>${movie['id']}</td><td>${movie['title']}</td><td>${movie['vote_average']}</td><td>${movie['overview']}</td><td>${movie['release_date']}</td></tr>`);
-    })
+            $('#topMoviesTable > tbody:last-child').append(`<tr data-toggle="tooltip" data-placement="bottom" title data-html="true"><td>${movie["popularity"]}</td><td>${movie['vote_count']}</td><td>${movie['id']}</td><td>${movie['title']}</td><td>${movie['vote_average']}</td><td>${movie['overview']}</td><td>${movie['release_date']}</td></tr>`);
+            fixPoster();
+            
+        })
     },
     error => console.log('error:', error)
 );
-     activateTooltips();
 })
+
+function fixPoster(row){
+    $("tbody tr").last().hover(function(eventObj){
+        var id = $(eventObj.target.parentNode).find("td")[2].innerHTML;
+        var request = $.get(`https://api.themoviedb.org/3/movie/${id}?api_key=8918eeb157819cd67ed7afef14cea55c&language=en-US`)
+        request.then(
+            movie => {$(eventObj.target.parentNode).attr("data-original-title", `<img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/${movie['poster_path']}" alt="Poster imag">`), $(eventObj.target.parentNode).tooltip();},
+            error1 => console.log("error", error1)
+        );
+    })
+}
+
+
+
 
 function toggleShareRatingForm() {
     $('#ratingForm').fadeIn('show');
@@ -29,8 +44,4 @@ function handleSubmitForm() {
 
     $('#ratingForm')[0].reset();
     $('#ratingForm').fadeOut('normal');
-}
-
-function activateTooltips() {
-    $('[data-toggle="tooltip"]').tooltip();
 }
